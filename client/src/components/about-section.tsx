@@ -3,25 +3,32 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function AboutSection() {
   const experiences = [
     {
-      title: "Senior Game Developer",
-      company: "GameStudio Inc.",
-      period: "2021-Present",
+      title: "Senior Unity Developer",
+      company: "INVINCIBLE OCEAN PVT LTD",
+      period: "10/2023 - 05/2024",
       icon: "fas fa-briefcase",
       color: "electric-blue"
     },
     {
-      title: "Unity Developer",
-      company: "IndieDev Studio",
-      period: "2019-2021",
+      title: "Lead Unity Developer",
+      company: "THREYE INTERACTIVE PVT LTD",
+      period: "02/2020 - 07/2023",
       icon: "fas fa-code",
       color: "vibrant-purple"
     },
     {
-      title: "Computer Science Degree",
-      company: "Tech University",
-      period: "2015-2019",
-      icon: "fas fa-graduation-cap",
+      title: "Unity Developer",
+      company: "CREATIOSOFT PVT LTD",
+      period: "06/2018 - 02/2020",
+      icon: "fas fa-laptop-code",
       color: "electric-blue"
+    },
+    {
+      title: "B.Tech Computer Science",
+      company: "IIMT College of Engineering",
+      period: "07/2013 - 06/2017",
+      icon: "fas fa-graduation-cap",
+      color: "vibrant-purple"
     }
   ];
 
@@ -42,13 +49,13 @@ export default function AboutSection() {
               </h2>
               <div className="space-y-6 text-lg text-gray-300">
                 <p>
-                  I'm a passionate game developer with over 6 years of experience creating immersive gaming experiences. My journey began with a Computer Science degree and a childhood dream of bringing game worlds to life.
+                  I'm an experienced Unity Developer with 7+ years of expertise in designing and developing immersive gameplay experiences for mid-core games with over 1M+ downloads. My journey began with a Computer Science degree and evolved into leading development teams.
                 </p>
                 <p>
-                  Specializing in Unity 3D development, I've successfully shipped 15+ games across multiple platforms, from mobile puzzle games to complex VR experiences. I'm particularly drawn to innovative gameplay mechanics and cutting-edge visual technologies.
+                  Proficient in Unity Game Engine and Mixed Reality, I've worked on various projects from WebGL applications for metaverse ecosystems to AR/VR content authoring tools. I'm passionate about pushing the boundaries of game design with innovative technical solutions.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring indie games, contributing to open-source projects, or mentoring aspiring game developers in my local community.
+                  My experience includes integrating AI tools like Convai for NPC conversations, managing multiplayer networking with Photon PUN2, and developing complete game meta systems including monetization strategies that increased revenue by 40%.
                 </p>
               </div>
             </div>

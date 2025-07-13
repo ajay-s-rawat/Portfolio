@@ -17,39 +17,39 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Mystic Realms RPG",
-    description: "An immersive fantasy RPG featuring dynamic weather systems, complex AI behaviors, and a branching storyline. Built with Unity's latest rendering pipeline.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["Unity 3D", "C#", "Blender"],
+    title: "Fighter Pilot: Heavyfire",
+    description: "Led the developers team and created complete game meta architecture for this combat flight simulator. Available on Google Play Store with engaging aerial combat mechanics.",
+    image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["Unity 3D", "C#", "Mobile"],
     category: "unity",
-    year: "2024",
+    year: "2023",
     links: {
-      github: "#",
+      store: "https://play.google.com/store/apps/details?id=com.threye.fighterpilot.cas.a10&pcampaignid=web_share",
       demo: "#",
       video: "#"
     }
   },
   {
     id: "2",
-    title: "Speed Rush Mobile",
-    description: "High-performance mobile racing game with real-time multiplayer, advanced physics simulation, and stunning visual effects optimized for mobile devices.",
-    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["Mobile", "Unity", "C#"],
+    title: "VIP Vegas Slot",
+    description: "Implemented UI screens and gameplay features for this casino slot game. Featured on the App Store with engaging slot machine mechanics and visual effects.",
+    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["Unity", "C#", "Mobile"],
     category: "mobile",
-    year: "2023",
+    year: "2019",
     links: {
-      store: "#",
+      store: "https://apps.apple.com/us/app/vegas-vip-slots-casino-games/id1471325236",
       demo: "#"
     }
   },
   {
     id: "3",
-    title: "VR Space Explorer",
-    description: "Immersive VR experience allowing users to explore detailed space environments with realistic physics and interactive elements using Unity XR Toolkit.",
-    image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["VR", "Unity XR", "C#"],
+    title: "IDEX AR/VR Project",
+    description: "Designed architecture and tools for AR/VR content authoring on devices like HP Reverb G2, HTC Vive Pro, and Meta Quest 2 & 3. Collaborated with the Indian Air Force for immersive training simulations.",
+    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["VR", "AR", "Unity XR", "Mixed Reality"],
     category: "vr",
-    year: "2023",
+    year: "2024",
     links: {
       demo: "#",
       video: "#"
@@ -57,23 +57,10 @@ export const projects: Project[] = [
   },
   {
     id: "4",
-    title: "Retro Platformer",
-    description: "A nostalgic 2D platformer with modern gameplay mechanics, featuring hand-crafted pixel art, smooth animations, and challenging level design.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["2D", "Unity", "Pixel Art"],
-    category: "indie",
-    year: "2022",
-    links: {
-      demo: "#",
-      store: "#"
-    }
-  },
-  {
-    id: "5",
-    title: "Empire Builder",
-    description: "Complex real-time strategy game with advanced AI, resource management systems, and multiplayer capabilities. Features procedural map generation.",
-    image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["Strategy", "Unity", "C#"],
+    title: "Fighter Vs Bomber",
+    description: "Created game architecture and implemented multiplayer behaviors for this aerial combat game with engaging dogfight mechanics.",
+    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["Unity", "C#", "Photon PUN2"],
     category: "unity",
     year: "2022",
     links: {
@@ -82,16 +69,29 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "6",
-    title: "Neon Puzzles",
-    description: "Minimalist puzzle game with stunning neon visuals and relaxing gameplay. Features 200+ handcrafted levels with increasing complexity.",
+    id: "5",
+    title: "Throw A Ring",
+    description: "Implemented the gameplay mechanics and integrated In-app purchases for this engaging casual game with physics-based ring throwing.",
     image: "https://images.unsplash.com/photo-1606889464198-fcb18894cf50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["Puzzle", "Unity", "Mobile"],
+    technologies: ["Unity", "C#", "Mobile"],
     category: "mobile",
-    year: "2021",
+    year: "2019",
     links: {
-      store: "#",
-      video: "#"
+      demo: "#",
+      store: "#"
+    }
+  },
+  {
+    id: "6",
+    title: "Unity WebGL Metaverse Apps",
+    description: "Worked on various Unity WebGL applications for metaverse ecosystem including Eternity City, VR Mall, VR Bank with optimized performance and AI integration.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["Unity", "WebGL", "AI", "Convai"],
+    category: "unity",
+    year: "2024",
+    links: {
+      demo: "#",
+      github: "#"
     }
   }
 ];

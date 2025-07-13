@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application built with a modern tech stack featuring a React frontend with TypeScript, Express.js backend, and PostgreSQL database. The application is a game developer portfolio website for "Alex Chen" showcasing projects, skills, and experience in game development.
+This is a full-stack web application built with a modern tech stack featuring a React frontend with TypeScript, Express.js backend, and PostgreSQL database. The application is a professional portfolio website for "Ajay Singh Rawat", a Senior Unity Developer with 7+ years of experience, showcasing real projects, skills, and professional experience in game development with downloadable resume functionality.
 
 ## User Preferences
 

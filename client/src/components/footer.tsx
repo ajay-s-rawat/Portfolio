@@ -10,8 +10,8 @@ export default function Footer() {
     <footer className="bg-dark-secondary py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gradient mb-4">Alex Chen</h3>
-          <p className="text-gray-300 mb-6">Game Developer & Unity Expert</p>
+          <h3 className="text-2xl font-bold text-gradient mb-4">Ajay Singh Rawat</h3>
+          <p className="text-gray-300 mb-6">Senior Unity Developer</p>
           
           <div className="flex justify-center space-x-6 mb-8">
             {socialLinks.map((link, index) => (
@@ -27,7 +27,7 @@ export default function Footer() {
           
           <div className="border-t border-gray-700 pt-8">
             <p className="text-gray-400">
-              © 2024 Alex Chen. All rights reserved. | Built with passion for game development.
+              © 2024 Ajay Singh Rawat. All rights reserved. | Built with passion for game development.
             </p>
           </div>
         </div>

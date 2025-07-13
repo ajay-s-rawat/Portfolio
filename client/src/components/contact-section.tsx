@@ -49,19 +49,19 @@ export default function ContactSection() {
     {
       icon: "fas fa-envelope",
       label: "Email",
-      value: "alex.chen@gamedev.com",
+      value: "ajayrawat222@gmail.com",
       color: "electric-blue"
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+91-8882156223",
       color: "vibrant-purple"
     },
     {
       icon: "fas fa-map-marker-alt",
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Greater Noida, India",
       color: "electric-blue"
     }
   ];
