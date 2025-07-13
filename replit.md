@@ -2,11 +2,39 @@
 
 ## Overview
 
-This is a full-stack web application built with a modern tech stack featuring a React frontend with TypeScript, Express.js backend, and PostgreSQL database. The application is a professional portfolio website for "Ajay Singh Rawat", a Senior Unity Developer with 7+ years of experience, showcasing real projects, skills, and professional experience in game development with downloadable resume functionality.
+This is a comprehensive full-stack web application built with a modern tech stack featuring a React frontend with TypeScript, Express.js backend, and PostgreSQL database. The application is a professional portfolio website for "Ajay Singh Rawat", a Senior Unity Developer with 7+ years of experience in games, AR/VR, and metaverse development. 
+
+Key features include:
+- Detailed project showcase with individual project pages
+- Interactive meeting scheduler for consultation booking
+- Comprehensive services section highlighting consulting capabilities
+- Downloadable resume functionality
+- Mobile-responsive design optimized for all devices
+- Real project information from Ajay's actual resume and experience
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+
+## Recent Changes (January 2025)
+
+### Enhanced Portfolio Structure
+- Added detailed project pages with individual routing (/project/:id)
+- Implemented comprehensive project showcase with real project data
+- Added meeting scheduler with consultation booking functionality
+- Created services section highlighting Unity development and consulting capabilities
+
+### Updated Content
+- Updated all personal information to reflect Ajay Singh Rawat's actual resume
+- Added real projects: Fighter Pilot Heavyfire, VIP Vegas Slot, IDEX AR/VR Project
+- Updated skills to reflect actual expertise in Unity XR, Mixed Reality, Metaverse development
+- Enhanced about section with accurate professional experience timeline
+
+### Technical Improvements
+- Enhanced mobile responsiveness with custom CSS classes
+- Added intuitive navigation between pages with smooth scrolling
+- Integrated downloadable resume functionality with actual PDF file
+- Improved project filtering and categorization
 
 ## System Architecture
 
@@ -35,11 +63,14 @@ Preferred communication style: Simple, everyday language.
 - **Connection**: Neon Database serverless connection
 
 ### Frontend Components
-- **Navigation**: Fixed navigation with smooth scrolling
-- **Sections**: Hero, Projects, Skills, About, Contact, Footer
-- **UI Library**: Comprehensive component library based on Radix UI
-- **Theming**: Custom dark theme with electric blue and purple accents
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Navigation**: Fixed navigation with smooth scrolling and mobile-friendly hamburger menu
+- **Main Sections**: Hero, Projects, Skills, Services, About, Meeting Scheduler, Contact, Footer
+- **Project Detail Pages**: Individual pages for each project with comprehensive information
+- **Meeting Scheduler**: Interactive booking system for consultation appointments
+- **Services Section**: Detailed breakdown of development and consulting services
+- **UI Library**: Comprehensive component library based on Radix UI with Lucide icons
+- **Theming**: Custom dark gaming theme with electric blue and purple accents
+- **Responsive Design**: Mobile-first approach optimized for all screen sizes
 
 ### Backend Services
 - **Storage Interface**: Abstracted storage layer with in-memory implementation

@@ -101,6 +101,31 @@
   .gradient-overlay {
     background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
   }
+
+  /* Mobile responsiveness improvements */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+  
+  .mobile-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  .mobile-hero-title {
+    @apply text-4xl sm:text-5xl lg:text-7xl;
+  }
+  
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .mobile-button {
+    @apply px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3;
+  }
 }
 
 @layer utilities {

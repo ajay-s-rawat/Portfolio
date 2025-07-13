@@ -3,46 +3,47 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function SkillsSection() {
   const skillCategories = [
     {
-      title: "Game Engines",
+      title: "Game Engines & XR",
       icon: "fas fa-cube",
       color: "electric-blue",
       skills: [
         { name: "Unity 3D", level: "Expert", color: "text-electric-blue" },
-        { name: "Unreal Engine", level: "Advanced", color: "text-vibrant-purple" },
-        { name: "Godot", level: "Intermediate", color: "text-gray-400" }
+        { name: "Unity XR Toolkit", level: "Expert", color: "text-electric-blue" },
+        { name: "Mixed Reality", level: "Advanced", color: "text-vibrant-purple" },
+        { name: "WebGL", level: "Advanced", color: "text-gray-300" }
       ]
     },
     {
-      title: "Programming",
+      title: "Programming & Architecture",
       icon: "fas fa-code",
       color: "vibrant-purple",
       skills: [
         { name: "C#", level: "Expert", color: "text-electric-blue" },
-        { name: "C++", level: "Advanced", color: "text-vibrant-purple" },
-        { name: "JavaScript", level: "Intermediate", color: "text-gray-400" },
-        { name: "Python", level: "Intermediate", color: "text-gray-400" }
+        { name: "Unity Timeline", level: "Expert", color: "text-electric-blue" },
+        { name: "Photon PUN2", level: "Advanced", color: "text-vibrant-purple" },
+        { name: "PlayFab", level: "Advanced", color: "text-gray-300" }
       ]
     },
     {
-      title: "Platforms",
+      title: "Platforms & Deployment",
       icon: "fas fa-gamepad",
       color: "electric-blue",
       skills: [
-        { name: "PC/Mac", level: "Expert", color: "text-electric-blue" },
-        { name: "Mobile (iOS/Android)", level: "Advanced", color: "text-vibrant-purple" },
-        { name: "VR/AR", level: "Advanced", color: "text-gray-400" },
-        { name: "WebGL", level: "Intermediate", color: "text-gray-400" }
+        { name: "Mobile (iOS/Android)", level: "Expert", color: "text-electric-blue" },
+        { name: "VR Headsets", level: "Expert", color: "text-electric-blue" },
+        { name: "WebGL/Metaverse", level: "Advanced", color: "text-vibrant-purple" },
+        { name: "PC/Console", level: "Advanced", color: "text-gray-300" }
       ]
     },
     {
-      title: "Tools & Software",
-      icon: "fas fa-tools",
+      title: "AI & Integration",
+      icon: "fas fa-brain",
       color: "vibrant-purple",
       skills: [
-        { name: "Blender", level: "Advanced", color: "text-electric-blue" },
-        { name: "Photoshop", level: "Advanced", color: "text-vibrant-purple" },
-        { name: "Git/GitHub", level: "Expert", color: "text-gray-400" },
-        { name: "Visual Studio", level: "Expert", color: "text-gray-400" }
+        { name: "Convai Integration", level: "Advanced", color: "text-electric-blue" },
+        { name: "Monetization", level: "Expert", color: "text-electric-blue" },
+        { name: "A/B Testing", level: "Advanced", color: "text-vibrant-purple" },
+        { name: "Team Leadership", level: "Expert", color: "text-gray-300" }
       ]
     }
   ];

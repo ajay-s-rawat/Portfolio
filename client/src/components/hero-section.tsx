@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import resumePdf from "@assets/AjaySinghRawatResume_1752400935401.pdf";
 
 export default function HeroSection() {
   const handleViewWork = () => {
@@ -9,15 +8,6 @@ export default function HeroSection() {
     }
   };
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = resumePdf;
-    link.download = 'Ajay_Singh_Rawat_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center hero-bg pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -25,11 +15,11 @@ export default function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Senior Unity Developer
-                <span className="block text-gradient">& Game Expert</span>
+                Game Developer
+                <span className="block text-gradient">& Unity Expert</span>
               </h1>
               <p className="text-xl text-gray-300 max-w-lg">
-                Experienced Unity Developer with 7+ years of expertise in designing immersive gameplay experiences for mid-core games with over 1M+ downloads.
+                Unity Developer with 7+ years of experience building games, Augmented Reality and Virtual Reality projects, and metaverse applications. Available as an independent contractor for development and consulting services.
               </p>
             </div>
             
@@ -41,7 +31,6 @@ export default function HeroSection() {
                 View My Work
               </Button>
               <Button 
-                onClick={handleDownloadCV}
                 variant="outline"
                 className="border-vibrant-purple text-vibrant-purple px-8 py-3 rounded-lg font-semibold hover:bg-vibrant-purple hover:text-white transition-all duration-300"
               >

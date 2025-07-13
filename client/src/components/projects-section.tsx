@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projects, projectCategories } from "@/data/projects";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -99,6 +101,18 @@ export default function ProjectsSection() {
                     )}
                   </div>
                   <span className="text-sm text-gray-400">{project.year}</span>
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-gray-700">
+                  <Link href={`/project/${project.id}`}>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary transition-all duration-300 group"
+                    >
+                      View Details
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
