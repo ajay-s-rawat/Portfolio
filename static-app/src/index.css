@@ -1,0 +1,176 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --color-dark-primary: #0a0a0a;
+  --color-dark-secondary: #1a1a1a;
+  --color-electric-blue: #00d4ff;
+  --color-vibrant-purple: #8b5cf6;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-text-muted: #999999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-dark-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-black/25 backdrop-blur-sm border border-white/10;
+  }
+  
+  .neon-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .neon-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+  
+  .neon-glow-purple:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-bg {
+    background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  }
+  
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  }
+
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+  
+  .mobile-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  .mobile-hero-title {
+    @apply text-4xl sm:text-5xl lg:text-7xl;
+  }
+  
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .mobile-button {
+    @apply px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3;
+  }
+}
+
+/* Custom utility classes */
+.electric-blue {
+  color: var(--color-electric-blue);
+}
+
+.vibrant-purple {
+  color: var(--color-vibrant-purple);
+}
+
+.bg-dark-primary {
+  background-color: var(--color-dark-primary);
+}
+
+.bg-dark-secondary {
+  background-color: var(--color-dark-secondary);
+}
+
+.bg-electric-blue {
+  background-color: var(--color-electric-blue);
+}
+
+.bg-vibrant-purple {
+  background-color: var(--color-vibrant-purple);
+}
+
+.text-electric-blue {
+  color: var(--color-electric-blue);
+}
+
+.text-vibrant-purple {
+  color: var(--color-vibrant-purple);
+}
+
+.border-electric-blue {
+  border-color: var(--color-electric-blue);
+}
+
+.border-vibrant-purple {
+  border-color: var(--color-vibrant-purple);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .mobile-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .mobile-text {
+    font-size: 1rem;
+  }
+  
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
