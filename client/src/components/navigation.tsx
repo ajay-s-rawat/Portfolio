@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { scrollToSection } from "@/lib/utils-static";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,10 +17,7 @@ export default function Navigation() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollToSection(href);
   };
 
   return (

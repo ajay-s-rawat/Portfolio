@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Gamepad2, Headphones, Globe, Wrench, Code, Users } from "lucide-react";
+import { scrollToSection } from "@/lib/utils-static";
 
 export default function ServicesSection() {
   const services = [
@@ -79,10 +80,11 @@ export default function ServicesSection() {
   ];
 
   const handleScheduleMeeting = () => {
-    const element = document.querySelector("#meeting-scheduler");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollToSection("#meeting-scheduler");
+  };
+
+  const handleGetQuote = () => {
+    scrollToSection("#contact");
   };
 
   return (
@@ -147,13 +149,8 @@ export default function ServicesSection() {
               </Button>
               <Button 
                 variant="outline"
+                onClick={handleGetQuote}
                 className="border-vibrant-purple text-vibrant-purple px-8 py-3 rounded-lg font-semibold hover:bg-vibrant-purple hover:text-white transition-all duration-300"
-                onClick={() => {
-                  const element = document.querySelector("#contact");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }
-                }}
               >
                 Get Quote
               </Button>

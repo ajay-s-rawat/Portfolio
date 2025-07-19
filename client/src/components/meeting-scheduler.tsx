@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar, Clock, Video, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { simulateFormSubmission, validateEmail } from "@/lib/utils-static";
 
 export default function MeetingScheduler() {
   const [formData, setFormData] = useState({
@@ -24,23 +25,64 @@ export default function MeetingScheduler() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate meeting scheduling
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Validate email
+      if (!validateEmail(formData.email)) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      // Simulate meeting scheduling
+      await simulateFormSubmission(formData);
+      
+      // Create mailto link for meeting request
+      const selectedMeetingType = meetingTypes.find(t => t.value === formData.meetingType);
+      const subject = `Meeting Request: ${selectedMeetingType?.label}`;
+      const body = `
+Hello Ajay,
+
+I would like to schedule a meeting with the following details:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'Not specified'}
+Meeting Type: ${selectedMeetingType?.label} (${selectedMeetingType?.duration})
+Preferred Date: ${formData.preferredDate}
+Preferred Time: ${formData.preferredTime} IST
+
+Project Details:
+${formData.projectDetails}
+
+Looking forward to hearing from you!
+
+Best regards,
+${formData.name}
+      `.trim();
+      
+      const mailtoLink = `mailto:ajayrawat222@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(mailtoLink, '_blank');
     
-    toast({
-      title: "Meeting request sent!",
-      description: "I'll send you a calendar invite within 24 hours with available time slots.",
-    });
+      toast({
+        title: "Meeting request sent!",
+        description: "I'll send you a calendar invite within 24 hours with available time slots.",
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        meetingType: "",
+        projectDetails: "",
+        preferredDate: "",
+        preferredTime: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    }
     
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      meetingType: "",
-      projectDetails: "",
-      preferredDate: "",
-      preferredTime: ""
-    });
     setIsSubmitting(false);
   };
 

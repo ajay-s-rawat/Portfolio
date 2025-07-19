@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { downloadFile } from "@/lib/utils-static";
 
 export default function HeroSection() {
   const handleViewWork = () => {
@@ -8,6 +9,9 @@ export default function HeroSection() {
     }
   };
 
+  const handleDownloadCV = () => {
+    downloadFile("/attached_assets/AjaySinghRawatResume_1752400935401.pdf", "AjaySinghRawat_Resume.pdf");
+  };
   return (
     <section id="home" className="min-h-screen flex items-center hero-bg pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -32,6 +36,7 @@ export default function HeroSection() {
               </Button>
               <Button 
                 variant="outline"
+                onClick={handleDownloadCV}
                 className="border-vibrant-purple text-vibrant-purple px-8 py-3 rounded-lg font-semibold hover:bg-vibrant-purple hover:text-white transition-all duration-300"
               >
                 Download CV

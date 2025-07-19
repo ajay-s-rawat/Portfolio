@@ -20,3 +20,19 @@ export function formatDate(date: Date): string {
     day: 'numeric'
   });
 }
+
+export function downloadFile(url: string, filename: string): void {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+export function scrollToSection(sectionId: string): void {
+  const element = document.querySelector(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}

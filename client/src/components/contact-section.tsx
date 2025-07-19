@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { simulateFormSubmission, validateEmail } from "@/lib/utils-static";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -22,22 +23,51 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // Validate email
+      if (!validateEmail(formData.email)) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      // Simulate form submission
+      await simulateFormSubmission(formData);
+      
+      // Create mailto link as fallback
+      const subject = `Contact Form: ${formData.projectType || 'General Inquiry'}`;
+      const body = `
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Project Type: ${formData.projectType}
+Budget: ${formData.budget}
+
+Message:
+${formData.description}
+      `.trim();
+      
+      const mailtoLink = `mailto:ajayrawat222@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(mailtoLink, '_blank');
     
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        projectType: "",
+        budget: "",
+        description: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    }
     
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      projectType: "",
-      budget: "",
-      description: ""
-    });
     setIsSubmitting(false);
   };
 
