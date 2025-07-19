@@ -5,7 +5,13 @@ import path from 'path';
 console.log('Starting static site server...');
 
 // Since this was converted to a static site, we'll run Vite directly
-const viteProcess = spawn('npx', ['vite', '--host', '0.0.0.0', '--port', '5000'], {
+// Use development config that allows Replit hosts
+const viteProcess = spawn('npx', [
+  'vite', 
+  '--config', 'vite.config.dev.ts',
+  '--host', '0.0.0.0', 
+  '--port', '5000'
+], {
   cwd: path.resolve(process.cwd()),
   stdio: 'inherit',
   shell: true
