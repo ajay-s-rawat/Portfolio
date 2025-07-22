@@ -1,34 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useLocation } from "wouter";
 
 const scrollToSection = (sectionId: string) => {
-  // If we're not on the home page, navigate there first then scroll
-  if (window.location.pathname !== '/') {
-    // Navigate to home page with hash
-    window.location.href = `/${sectionId}`;
-    return;
-  }
-  
-  // If we're on home page, scroll directly
   const element = document.querySelector(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-// Handle navigation from other pages with hash
-const handleCrossPageNavigation = () => {
-  // Check if there's a hash in the URL when page loads
-  if (window.location.hash) {
-    setTimeout(() => {
-      const element = document.querySelector(window.location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 100);
   }
 };
 
@@ -36,10 +15,14 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
 
-  // Handle cross-page navigation on component mount
-  React.useEffect(() => {
-    handleCrossPageNavigation();
-  }, []);
+  // Handle navigation from URL hash on page load
+  useEffect(() => {
+    if (window.location.hash && location === '/') {
+      setTimeout(() => {
+        scrollToSection(window.location.hash);
+      }, 100);
+    }
+  }, [location]);
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -52,7 +35,15 @@ export default function Navigation() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    scrollToSection(href);
+    
+    // If we're not on the home page, navigate there first
+    if (location !== '/') {
+      // Navigate to home with hash and scroll after navigation
+      window.location.href = `/${href}`;
+    } else {
+      // If we're already on home page, scroll directly
+      scrollToSection(href);
+    }
   };
 
   return (

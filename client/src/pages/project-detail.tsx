@@ -8,10 +8,16 @@ import { projects } from "@/data/projects";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Link } from "wouter";
+import { useEffect } from "react";
 
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:id");
   const project = projects.find(p => p.id === params?.id);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   if (!project) {
     return (
@@ -45,15 +51,6 @@ export default function ProjectDetail() {
               <Button 
                 variant="outline" 
                 className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary"
-                onClick={() => {
-                  // Scroll to projects section when returning to home
-                  setTimeout(() => {
-                    const element = document.querySelector("#projects");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                  }, 100);
-                }}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Portfolio
@@ -277,7 +274,7 @@ export default function ProjectDetail() {
                   <p className="text-gray-300 mb-4">
                     I'm available for Unity development projects and consulting services.
                   </p>
-                  <Link href="/">
+                  <Link href="/#contact">
                     <Button className="w-full bg-gradient-to-r from-electric-blue to-vibrant-purple text-white">
                       Get In Touch
                     </Button>
