@@ -117,7 +117,7 @@ export default function ProjectsSection() {
                         href={project.links.store} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-electric-blue hover:text-white transition-colors"
+                        className="tevcvxt-electric-blue hover:text-white transition-colors"
                         aria-label="Download from Store"
                       >
                         <i className="fas fa-store" />
