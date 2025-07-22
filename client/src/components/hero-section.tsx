@@ -26,8 +26,8 @@ export default function HeroSection() {
   };
 
   const socialLinks = [
-    { icon: "fab fa-github", href: "https://github.com", label: "GitHub" },
-    { icon: "fab fa-linkedin", href: "https://linkedin.com/in/ajay-singh-rawat", label: "LinkedIn" },
+    { icon: "fab fa-github", href: "https://github.com/ajay-s-rawat", label: "GitHub" },
+    { icon: "fab fa-linkedin", href: "https://www.linkedin.com/in/ajay-rawat-83531a12a", label: "LinkedIn" },
     { icon: "fab fa-twitter", href: "https://twitter.com", label: "Twitter" },
     { icon: "fab fa-itch-io", href: "https://itch.io", label: "Itch.io" }
   ];

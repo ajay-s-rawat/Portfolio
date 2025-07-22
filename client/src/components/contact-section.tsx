@@ -110,8 +110,8 @@ ${formData.description}
   ];
 
   const socialLinks = [
-    { icon: "fab fa-linkedin", label: "LinkedIn", href: "https://linkedin.com/in/ajay-singh-rawat", color: "electric-blue" },
-    { icon: "fab fa-github", label: "GitHub", href: "https://github.com", color: "vibrant-purple" },
+    { icon: "fab fa-linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/ajay-rawat-83531a12a", color: "electric-blue" },
+    { icon: "fab fa-github", label: "GitHub", href: "https://github.com/ajay-s-rawat", color: "vibrant-purple" },
     { icon: "fab fa-twitter", label: "Twitter", href: "https://twitter.com", color: "electric-blue" },
     { icon: "fab fa-itch-io", label: "Itch.io", href: "https://itch.io", color: "vibrant-purple" }
   ];

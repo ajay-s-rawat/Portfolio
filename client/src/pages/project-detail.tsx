@@ -1,3 +1,4 @@
+import React from "react";
 import { useRoute } from "wouter";
 import { ArrowLeft, ExternalLink, Github, Store, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";

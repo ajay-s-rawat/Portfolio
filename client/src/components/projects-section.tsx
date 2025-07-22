@@ -130,6 +130,12 @@ export default function ProjectsSection() {
                 <div className="mt-4 pt-4 border-t border-gray-700">
                   <Link href={`/project/${project.id}`}>
                     <Button 
+                      onClick={() => {
+                        // Scroll to top when navigating to project detail
+                        setTimeout(() => {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }, 100);
+                      }}
                       variant="outline" 
                       className="w-full border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary transition-all duration-300 group"
                     >

@@ -1,24 +1,45 @@
+import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useLocation } from "wouter";
 
 const scrollToSection = (sectionId: string) => {
-  // If we're not on the home page, navigate there first
+  // If we're not on the home page, navigate there first then scroll
   if (window.location.pathname !== '/') {
+    // Navigate to home page with hash
     window.location.href = `/${sectionId}`;
     return;
   }
   
+  // If we're on home page, scroll directly
   const element = document.querySelector(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 };
 
+// Handle navigation from other pages with hash
+const handleCrossPageNavigation = () => {
+  // Check if there's a hash in the URL when page loads
+  if (window.location.hash) {
+    setTimeout(() => {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  }
+};
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
+
+  // Handle cross-page navigation on component mount
+  React.useEffect(() => {
+    handleCrossPageNavigation();
+  }, []);
 
   const navItems = [
     { href: "#home", label: "Home" },
