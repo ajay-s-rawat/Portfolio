@@ -5,7 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { simulateFormSubmission, validateEmail } from "@/lib/utils-static";
+
+const simulateFormSubmission = (data: Record<string, any>): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 1500);
+  });
+};
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -80,27 +90,30 @@ ${formData.description}
       icon: "fas fa-envelope",
       label: "Email",
       value: "ajayrawat222@gmail.com",
-      color: "electric-blue"
+      color: "electric-blue",
+      href: "mailto:ajayrawat222@gmail.com"
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
       value: "+91-8882156223",
-      color: "vibrant-purple"
+      color: "vibrant-purple",
+      href: "tel:+918882156223"
     },
     {
       icon: "fas fa-map-marker-alt",
       label: "Location",
       value: "Greater Noida, India",
-      color: "electric-blue"
+      color: "electric-blue",
+      href: "https://maps.google.com/?q=Greater+Noida,+India"
     }
   ];
 
   const socialLinks = [
-    { icon: "fab fa-linkedin", label: "LinkedIn", href: "#", color: "electric-blue" },
-    { icon: "fab fa-github", label: "GitHub", href: "#", color: "vibrant-purple" },
-    { icon: "fab fa-twitter", label: "Twitter", href: "#", color: "electric-blue" },
-    { icon: "fab fa-itch-io", label: "Itch.io", href: "#", color: "vibrant-purple" }
+    { icon: "fab fa-linkedin", label: "LinkedIn", href: "https://linkedin.com/in/ajay-singh-rawat", color: "electric-blue" },
+    { icon: "fab fa-github", label: "GitHub", href: "https://github.com", color: "vibrant-purple" },
+    { icon: "fab fa-twitter", label: "Twitter", href: "https://twitter.com", color: "electric-blue" },
+    { icon: "fab fa-itch-io", label: "Itch.io", href: "https://itch.io", color: "vibrant-purple" }
   ];
 
   return (
@@ -217,7 +230,13 @@ ${formData.description}
                 <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center space-x-4">
+                    <a 
+                      key={index} 
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : '_self'}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+                    >
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         info.color === "electric-blue" ? "bg-electric-blue/20" : "bg-vibrant-purple/20"
                       }`}>
@@ -229,7 +248,7 @@ ${formData.description}
                         <p className="text-gray-300">{info.label}</p>
                         <p className="font-semibold">{info.value}</p>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </CardContent>
@@ -243,11 +262,14 @@ ${formData.description}
                     <a
                       key={index}
                       href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`flex items-center justify-center space-x-2 bg-dark-card border border-gray-600 rounded-lg p-4 transition-all duration-300 ${
                         link.color === "electric-blue" 
                           ? "hover:bg-electric-blue/20 hover:border-electric-blue" 
                           : "hover:bg-vibrant-purple/20 hover:border-vibrant-purple"
                       }`}
+                      aria-label={link.label}
                     >
                       <i className={`${link.icon} ${
                         link.color === "electric-blue" ? "text-electric-blue" : "text-vibrant-purple"

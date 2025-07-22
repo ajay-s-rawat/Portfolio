@@ -1,7 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Gamepad2, Headphones, Globe, Wrench, Code, Users } from "lucide-react";
-import { scrollToSection } from "@/lib/utils-static";
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.querySelector(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 export default function ServicesSection() {
   const services = [

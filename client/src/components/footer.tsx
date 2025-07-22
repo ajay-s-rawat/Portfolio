@@ -1,9 +1,9 @@
 export default function Footer() {
   const socialLinks = [
-    { icon: "fab fa-github", href: "#" },
-    { icon: "fab fa-linkedin", href: "#" },
-    { icon: "fab fa-twitter", href: "#" },
-    { icon: "fab fa-itch-io", href: "#" }
+    { icon: "fab fa-github", href: "https://github.com", label: "GitHub" },
+    { icon: "fab fa-linkedin", href: "https://linkedin.com/in/ajay-singh-rawat", label: "LinkedIn" },
+    { icon: "fab fa-twitter", href: "https://twitter.com", label: "Twitter" },
+    { icon: "fab fa-itch-io", href: "https://itch.io", label: "Itch.io" }
   ];
 
   return (
@@ -18,7 +18,10 @@ export default function Footer() {
               <a
                 key={index}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-electric-blue transition-colors duration-300"
+                aria-label={link.label}
               >
                 <i className={`${link.icon} text-xl`} />
               </a>

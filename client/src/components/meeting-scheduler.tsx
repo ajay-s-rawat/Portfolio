@@ -6,7 +6,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar, Clock, Video, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { simulateFormSubmission, validateEmail } from "@/lib/utils-static";
+
+const simulateFormSubmission = (data: Record<string, any>): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 1500);
+  });
+};
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 export default function MeetingScheduler() {
   const [formData, setFormData] = useState({

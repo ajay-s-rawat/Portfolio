@@ -1,17 +1,37 @@
 import { Button } from "@/components/ui/button";
-import { downloadFile } from "@/lib/utils-static";
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.querySelector(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+const downloadFile = (url: string, filename: string) => {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 export default function HeroSection() {
   const handleViewWork = () => {
-    const element = document.querySelector("#projects");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollToSection("#projects");
   };
 
   const handleDownloadCV = () => {
-    downloadFile("/attached_assets/AjaySinghRawatResume_1752400935401.pdf", "AjaySinghRawat_Resume.pdf");
+    downloadFile("./attached_assets/AjaySinghRawatResume_1752400935401.pdf", "AjaySinghRawat_Resume.pdf");
   };
+
+  const socialLinks = [
+    { icon: "fab fa-github", href: "https://github.com", label: "GitHub" },
+    { icon: "fab fa-linkedin", href: "https://linkedin.com/in/ajay-singh-rawat", label: "LinkedIn" },
+    { icon: "fab fa-twitter", href: "https://twitter.com", label: "Twitter" },
+    { icon: "fab fa-itch-io", href: "https://itch.io", label: "Itch.io" }
+  ];
+
   return (
     <section id="home" className="min-h-screen flex items-center hero-bg pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -44,18 +64,18 @@ export default function HeroSection() {
             </div>
             
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-300">
-                <i className="fab fa-github text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-300">
-                <i className="fab fa-linkedin text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-300">
-                <i className="fab fa-twitter text-2xl" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-300">
-                <i className="fab fa-itch-io text-2xl" />
-              </a>
+              {socialLinks.map((link, index) => (
+                <a 
+                  key={index}
+                  href={link.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-electric-blue transition-colors duration-300"
+                  aria-label={link.label}
+                >
+                  <i className={`${link.icon} text-2xl`} />
+                </a>
+              ))}
             </div>
           </div>
           

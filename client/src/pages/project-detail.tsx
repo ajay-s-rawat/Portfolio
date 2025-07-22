@@ -41,7 +41,19 @@ export default function ProjectDetail() {
           {/* Back Button */}
           <div className="mb-8">
             <Link href="/">
-              <Button variant="outline" className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary">
+              <Button 
+                variant="outline" 
+                className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary"
+                onClick={() => {
+                  // Scroll to projects section when returning to home
+                  setTimeout(() => {
+                    const element = document.querySelector("#projects");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }, 100);
+                }}
+              >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Portfolio
               </Button>
@@ -83,7 +95,10 @@ export default function ProjectDetail() {
 
               <div className="flex flex-wrap gap-4">
                 {project.links.github && (
-                  <Button asChild className="bg-electric-blue text-dark-primary hover:bg-electric-blue/90">
+                  <Button 
+                    asChild 
+                    className="bg-electric-blue text-dark-primary hover:bg-electric-blue/90"
+                  >
                     <a href={project.links.github} target="_blank" rel="noopener noreferrer">
                       <Github className="w-4 h-4 mr-2" />
                       View Code
@@ -91,7 +106,11 @@ export default function ProjectDetail() {
                   </Button>
                 )}
                 {project.links.demo && (
-                  <Button asChild variant="outline" className="border-vibrant-purple text-vibrant-purple hover:bg-vibrant-purple hover:text-white">
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    className="border-vibrant-purple text-vibrant-purple hover:bg-vibrant-purple hover:text-white"
+                  >
                     <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
@@ -99,7 +118,11 @@ export default function ProjectDetail() {
                   </Button>
                 )}
                 {project.links.store && (
-                  <Button asChild variant="outline" className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary">
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-dark-primary"
+                  >
                     <a href={project.links.store} target="_blank" rel="noopener noreferrer">
                       <Store className="w-4 h-4 mr-2" />
                       Download
@@ -107,7 +130,11 @@ export default function ProjectDetail() {
                   </Button>
                 )}
                 {project.links.video && (
-                  <Button asChild variant="outline" className="border-vibrant-purple text-vibrant-purple hover:bg-vibrant-purple hover:text-white">
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    className="border-vibrant-purple text-vibrant-purple hover:bg-vibrant-purple hover:text-white"
+                  >
                     <a href={project.links.video} target="_blank" rel="noopener noreferrer">
                       <Play className="w-4 h-4 mr-2" />
                       Watch Video
@@ -249,7 +276,7 @@ export default function ProjectDetail() {
                   <p className="text-gray-300 mb-4">
                     I'm available for Unity development projects and consulting services.
                   </p>
-                  <Link href="/#contact">
+                  <Link href="/">
                     <Button className="w-full bg-gradient-to-r from-electric-blue to-vibrant-purple text-white">
                       Get In Touch
                     </Button>

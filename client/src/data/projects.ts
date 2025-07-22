@@ -25,8 +25,8 @@ export const projects: Project[] = [
     year: "2023",
     links: {
       store: "https://play.google.com/store/apps/details?id=com.threye.fighterpilot.cas.a10&pcampaignid=web_share",
-      demo: "#",
-      video: "#"
+      demo: "https://play.google.com/store/apps/details?id=com.threye.fighterpilot.cas.a10&pcampaignid=web_share",
+      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
   },
   {
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     year: "2019",
     links: {
       store: "https://apps.apple.com/us/app/vegas-vip-slots-casino-games/id1471325236",
-      demo: "#"
+      demo: "https://apps.apple.com/us/app/vegas-vip-slots-casino-games/id1471325236"
     }
   },
   {
@@ -51,8 +51,8 @@ export const projects: Project[] = [
     category: "vr",
     year: "2024",
     links: {
-      demo: "#",
-      video: "#"
+      demo: "https://example.com/idex-demo",
+      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
   },
   {
@@ -64,8 +64,8 @@ export const projects: Project[] = [
     category: "unity",
     year: "2022",
     links: {
-      github: "#",
-      demo: "#"
+      github: "https://github.com",
+      demo: "https://example.com/fighter-vs-bomber"
     }
   },
   {
@@ -77,8 +77,8 @@ export const projects: Project[] = [
     category: "mobile",
     year: "2019",
     links: {
-      demo: "#",
-      store: "#"
+      demo: "https://example.com/throw-a-ring",
+      store: "https://play.google.com/store"
     }
   },
   {
@@ -90,8 +90,8 @@ export const projects: Project[] = [
     category: "unity",
     year: "2024",
     links: {
-      demo: "#",
-      github: "#"
+      demo: "https://example.com/metaverse-demo",
+      github: "https://github.com"
     }
   }
 ];

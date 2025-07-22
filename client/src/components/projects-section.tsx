@@ -80,22 +80,46 @@ export default function ProjectsSection() {
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-4">
                     {project.links.github && (
-                      <a href={project.links.github} className="text-electric-blue hover:text-white transition-colors">
+                      <a 
+                        href={project.links.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-electric-blue hover:text-white transition-colors"
+                        aria-label="View GitHub Repository"
+                      >
                         <i className="fab fa-github" />
                       </a>
                     )}
                     {project.links.demo && (
-                      <a href={project.links.demo} className="text-electric-blue hover:text-white transition-colors">
+                      <a 
+                        href={project.links.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-electric-blue hover:text-white transition-colors"
+                        aria-label="View Live Demo"
+                      >
                         <i className="fas fa-external-link-alt" />
                       </a>
                     )}
                     {project.links.video && (
-                      <a href={project.links.video} className="text-electric-blue hover:text-white transition-colors">
+                      <a 
+                        href={project.links.video} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-electric-blue hover:text-white transition-colors"
+                        aria-label="Watch Video"
+                      >
                         <i className="fab fa-youtube" />
                       </a>
                     )}
                     {project.links.store && (
-                      <a href={project.links.store} className="text-electric-blue hover:text-white transition-colors">
+                      <a 
+                        href={project.links.store} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-electric-blue hover:text-white transition-colors"
+                        aria-label="Download from Store"
+                      >
                         <i className="fas fa-store" />
                       </a>
                     )}

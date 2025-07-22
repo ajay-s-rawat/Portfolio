@@ -1,10 +1,24 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { scrollToSection } from "@/lib/utils-static";
+import { Link, useLocation } from "wouter";
+
+const scrollToSection = (sectionId: string) => {
+  // If we're not on the home page, navigate there first
+  if (window.location.pathname !== '/') {
+    window.location.href = `/${sectionId}`;
+    return;
+  }
+  
+  const element = document.querySelector(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [location] = useLocation();
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -25,7 +39,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl text-gradient font-bold">Ajay Rawat</h1>
+            <Link href="/">
+              <h1 className="text-xl text-gradient font-bold cursor-pointer hover:opacity-80 transition-opacity">
+                Ajay Rawat
+              </h1>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
@@ -35,7 +53,7 @@ export default function Navigation() {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-gray-300 hover:text-electric-blue transition-colors duration-300"
+                  className="text-gray-300 hover:text-electric-blue transition-colors duration-300 px-3 py-2 rounded-md"
                 >
                   {item.label}
                 </button>
@@ -57,7 +75,7 @@ export default function Navigation() {
                     <button
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-gray-300 hover:text-electric-blue transition-colors duration-300 text-left"
+                      className="text-gray-300 hover:text-electric-blue transition-colors duration-300 text-left px-4 py-3 rounded-md w-full"
                     >
                       {item.label}
                     </button>
