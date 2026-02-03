@@ -9,9 +9,9 @@ import { ArrowRight } from "lucide-react";
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const filteredProjects = activeFilter === "all" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects = activeFilter === "all"
+    ? projects
+    : projects.filter(project => project.categories.includes(activeFilter));
 
   return (
     <section id="projects" className="py-20 bg-dark-secondary">

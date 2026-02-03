@@ -7,13 +7,22 @@ const scrollToSection = (sectionId: string) => {
   }
 };
 
-const downloadFile = (url: string, filename: string) => {
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+const downloadFile = async (url: string, filename: string) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const blob = await response.blob();
+    const blobUrl = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    window.URL.revokeObjectURL(blobUrl);
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error('Download failed:', error);
+  }
 };
 
 export default function HeroSection() {
@@ -22,7 +31,11 @@ export default function HeroSection() {
   };
 
   const handleDownloadCV = () => {
-    downloadFile("./attached_assets/AjaySinghRawatResume_1752400935401.pdf", "AjaySinghRawat_Resume.pdf");
+    // Try different path formats
+    downloadFile("/attached_assets/AjaySinghRawatResume.pdf", "AjaySinghRawatResume.pdf").catch(() => {
+      // If first attempt fails, try alternate path
+      downloadFile("../attached_assets/AjaySinghRawatResume.pdf", "AjaySinghRawatResume.pdf");
+    });
   };
 
   const socialLinks = [
