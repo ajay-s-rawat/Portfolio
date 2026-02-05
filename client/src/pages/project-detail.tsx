@@ -234,13 +234,13 @@ export default function ProjectDetail() {
                     </div>
                     <div>
                       <span className="text-gray-400">Category:</span>
-                      <span className="ml-2 font-semibold capitalize">{project.category}</span>
+                      <span className="ml-2 font-semibold capitalize">{project.categories[0]}</span>
                     </div>
                     <div>
                       <span className="text-gray-400">Platform:</span>
                       <span className="ml-2 font-semibold">
-                        {project.category === "mobile" ? "iOS / Android" : 
-                         project.category === "vr" ? "VR Headsets" : "PC / Console"}
+                        {project.categories.includes("mobile") ? "iOS / Android" :
+                         project.categories.includes("xr") ? "VR Headsets" : "PC / Console"}
                       </span>
                     </div>
                     <div>
