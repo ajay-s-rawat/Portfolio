@@ -4,7 +4,7 @@ import { ArrowLeft, ExternalLink, Github, Store, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { projects } from "@/data/projects";
+import { projectCategories, projects } from "@/data/projects";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Link } from "wouter";
@@ -13,6 +13,17 @@ import { useEffect } from "react";
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:id");
   const project = projects.find(p => p.id === params?.id);
+  const primaryCategory = project?.categories[0];
+  const categoryLabel = primaryCategory
+    ? projectCategories.find(category => category.id === primaryCategory)?.label ?? primaryCategory
+    : "Uncategorized";
+  const platformLabel = project?.categories.includes("xr")
+    ? "VR Headsets"
+    : project?.technologies.some(tech => tech.toLowerCase().includes("mobile"))
+      ? "iOS / Android"
+      : project?.categories.includes("webgl")
+        ? "Web / WebGL"
+        : "PC / Console";
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -234,14 +245,11 @@ export default function ProjectDetail() {
                     </div>
                     <div>
                       <span className="text-gray-400">Category:</span>
-                      <span className="ml-2 font-semibold capitalize">{project.category}</span>
+                      <span className="ml-2 font-semibold">{categoryLabel}</span>
                     </div>
                     <div>
                       <span className="text-gray-400">Platform:</span>
-                      <span className="ml-2 font-semibold">
-                        {project.category === "mobile" ? "iOS / Android" : 
-                         project.category === "vr" ? "VR Headsets" : "PC / Console"}
-                      </span>
+                      <span className="ml-2 font-semibold">{platformLabel}</span>
                     </div>
                     <div>
                       <span className="text-gray-400">Role:</span>
