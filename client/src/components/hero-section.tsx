@@ -21,7 +21,7 @@ export default function HeroSection() {
     scrollToSection("#projects");
   };
 
-  const handleDownloadCV = async () => {
+  const handleDownloadCV = () => {
     const localUrl = "/AjaySinghRawatResume.pdf";
     downloadLocalFile(localUrl, "AjaySinghRawatResume.pdf");
   };
@@ -40,22 +40,24 @@ export default function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Game Developer
-                <span className="block text-gradient">& Unity Expert</span>
+                Unity Engineer
               </h1>
+              <p className="text-xl font-semibold text-gradient">
+                Game Developer | XR Developer
+              </p>
               <p className="text-xl text-gray-300 max-w-lg">
-                Unity Developer with 7+ years of experience building games, Augmented Reality and Virtual Reality projects, and metaverse applications. Available as an independent contractor for development and consulting services.
+                7+ years building and architecting immersive solutions, including games, metaverse experiences, and XR applications across multiple platforms. Open to full-time, freelance, and consulting roles.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
-              <Button 
+              <Button
                 onClick={handleViewWork}
                 className="bg-electric-blue text-dark-primary px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
               >
                 View My Work
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 onClick={handleDownloadCV}
                 className="border-vibrant-purple text-vibrant-purple px-8 py-3 rounded-lg font-semibold hover:bg-vibrant-purple hover:text-white transition-all duration-300"
@@ -63,13 +65,13 @@ export default function HeroSection() {
                 Download CV
               </Button>
             </div>
-            
+
             <div className="flex space-x-6">
               {socialLinks.map((link, index) => (
-                <a 
+                <a
                   key={index}
-                  href={link.href} 
-                  target="_blank" 
+                  href={link.href}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-electric-blue transition-colors duration-300"
                   aria-label={link.label}
@@ -79,12 +81,12 @@ export default function HeroSection() {
               ))}
             </div>
           </div>
-          
+
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Game development workspace with multiple monitors" 
-              className="rounded-2xl shadow-2xl" 
+            <img
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              alt="Game development workspace with multiple monitors"
+              className="rounded-2xl shadow-2xl"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-electric-blue/20 to-vibrant-purple/20 rounded-2xl" />
           </div>

@@ -27,7 +27,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/project/:id" component={ProjectDetail} />
+      <Route path="/project/:slug" component={ProjectDetail} />
       <Route component={NotFound} />
     </Switch>
   );
