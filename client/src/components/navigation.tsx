@@ -65,7 +65,7 @@ export default function Navigation() {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-gray-300 hover:text-electric-blue transition-colors duration-300 px-3 py-2 rounded-md"
+                  className="rounded-md px-3 py-2 text-gray-300 transition-all duration-200 hover:text-electric-blue active:scale-[0.98]"
                 >
                   {item.label}
                 </button>
@@ -87,7 +87,7 @@ export default function Navigation() {
                     <button
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-gray-300 hover:text-electric-blue transition-colors duration-300 text-left px-4 py-3 rounded-md w-full"
+                      className="w-full rounded-md px-4 py-3 text-left text-gray-300 transition-all duration-200 hover:text-electric-blue active:scale-[0.98]"
                     >
                       {item.label}
                     </button>

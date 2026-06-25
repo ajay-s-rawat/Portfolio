@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRoute, Link } from "wouter";
-import { ArrowLeft, ExternalLink, Github, Play } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, ImageIcon, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,36 +16,21 @@ function StoreBadgeButton({
   type: "google-play" | "app-store";
 }) {
   const isGooglePlay = type === "google-play";
+  const badgePath = `/store-badges/${isGooglePlay ? "play_store.png" : "app_store.png"}`;
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex overflow-hidden rounded-2xl border border-white/20 bg-black text-white shadow-lg transition-transform duration-300 hover:scale-[1.02] hover:border-white/40"
       aria-label={isGooglePlay ? "Get it on Google Play" : "Download on the App Store"}
+      className="inline-block rounded-lg transition-transform duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 focus-visible:ring-offset-dark-primary"
     >
-      <div className="flex items-center gap-4 px-4 py-3">
-        <div
-          className={`flex h-12 w-12 items-center justify-center rounded-xl ${
-            isGooglePlay
-              ? "bg-[linear-gradient(135deg,#00d4ff_0%,#00d97e_35%,#ffd43b_70%,#ff4d6d_100%)]"
-              : "border border-white/20 bg-white text-black"
-          }`}
-        >
-          <span className="text-2xl font-bold leading-none">
-            {isGooglePlay ? "\u25B6" : "\uF8FF"}
-          </span>
-        </div>
-        <div className="min-w-0 text-left">
-          <div className="text-[0.65rem] uppercase tracking-[0.22em] text-white/70">
-            {isGooglePlay ? "Get it on" : "Download on the"}
-          </div>
-          <div className="text-xl font-semibold leading-tight">
-            {isGooglePlay ? "Google Play" : "App Store"}
-          </div>
-        </div>
-      </div>
+      <img
+        src={badgePath}
+        alt={isGooglePlay ? "Get it on Google Play" : "Download on the App Store"}
+        className="h-14 w-auto block md:h-16"
+      />
     </a>
   );
 }
@@ -84,40 +69,190 @@ function ProjectHeroImage({
   );
 }
 
-function ShowcaseImage({
+function MediaImage({
   src,
   alt,
   title,
-  caption,
+  compact = false,
 }: {
   src: string;
   alt: string;
-  title?: string;
-  caption?: string;
+  title: string;
+  compact?: boolean;
 }) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
-  if (!isVisible) {
+  if (hasError || !src) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,rgba(0,212,255,0.14),rgba(139,92,246,0.12))] p-4 text-center">
+        <ImageIcon className={compact ? "h-5 w-5 text-white/70" : "h-10 w-10 text-white/70"} />
+        {!compact ? <span className="sr-only">{title}</span> : null}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={compact ? "h-full w-full object-cover" : "h-full w-full object-contain p-3"}
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
+type MediaItem = {
+  type: "image" | "video";
+  src: string;
+  title: string;
+  caption?: string;
+  alt?: string;
+};
+
+function getVideoEmbedUrl(url: string) {
+  try {
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.hostname.includes("youtube.com")) {
+      const videoId = parsedUrl.searchParams.get("v");
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    }
+
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      const videoId = parsedUrl.pathname.replace("/", "");
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    }
+
+    if (parsedUrl.hostname.includes("vimeo.com")) {
+      const videoId = parsedUrl.pathname.split("/").filter(Boolean).pop();
+      return videoId ? `https://player.vimeo.com/video/${videoId}` : url;
+    }
+
+    return url;
+  } catch {
+    return url;
+  }
+}
+
+function ProjectMediaShowcase({ media }: { media: MediaItem[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeMedia = media[activeIndex] ?? media[0];
+
+  if (!activeMedia) {
     return null;
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-      <div className="aspect-video w-full bg-black/35">
-        <img
-          src={src}
-          alt={alt}
-          className="h-full w-full object-contain p-3"
-          onError={() => setIsVisible(false)}
-        />
-      </div>
-      {(title || caption) && (
-        <div className="space-y-2 p-5">
-          {title ? <h3 className="text-lg font-semibold">{title}</h3> : null}
-          {caption ? <p className="text-sm text-gray-300">{caption}</p> : null}
+    <section className="mb-12">
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-bold">Project Media</h2>
+          <p className="mt-2 max-w-2xl text-sm text-gray-400">
+            Gameplay, screenshots, and visual proof from the finished work.
+          </p>
         </div>
-      )}
-    </div>
+        <div className="flex items-center gap-3 text-sm text-gray-400">
+          {media.some((item) => item.type === "video") ? (
+            <span className="inline-flex items-center gap-1.5">
+              <Play className="h-4 w-4 text-electric-blue" />
+              {media.filter((item) => item.type === "video").length} video
+            </span>
+          ) : null}
+          {media.some((item) => item.type === "image") ? (
+            <span className="inline-flex items-center gap-1.5">
+              <ImageIcon className="h-4 w-4 text-vibrant-purple" />
+              {media.filter((item) => item.type === "image").length} images
+            </span>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 shadow-2xl">
+        <div className="aspect-video bg-black">
+          {activeMedia.type === "video" ? (
+            <iframe
+              src={getVideoEmbedUrl(activeMedia.src)}
+              title={activeMedia.title}
+              className="h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <MediaImage
+              src={activeMedia.src}
+              alt={activeMedia.alt ?? activeMedia.title}
+              title={activeMedia.title}
+            />
+          )}
+        </div>
+
+        <div className="border-t border-white/10 p-5">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold">{activeMedia.title}</h3>
+              {activeMedia.caption ? (
+                <p className="mt-1 text-sm leading-relaxed text-gray-300">{activeMedia.caption}</p>
+              ) : null}
+            </div>
+            <span className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-wide text-gray-300 sm:mt-0">
+              {activeMedia.type === "video" ? (
+                <Play className="h-3.5 w-3.5 text-electric-blue" />
+              ) : (
+                <ImageIcon className="h-3.5 w-3.5 text-vibrant-purple" />
+              )}
+              {activeMedia.type}
+            </span>
+          </div>
+
+          {media.length > 1 ? (
+            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              {media.map((item, index) => {
+                const isActive = index === activeIndex;
+
+                return (
+                  <button
+                    key={`${item.type}-${item.src}`}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={`group overflow-hidden rounded-lg border text-left transition ${
+                      isActive
+                        ? "border-electric-blue bg-electric-blue/10"
+                        : "border-white/10 bg-white/5 hover:border-white/30"
+                    }`}
+                    aria-label={`Show ${item.title}`}
+                  >
+                    <div className="relative aspect-video bg-black/60">
+                      {item.type === "image" ? (
+                        <MediaImage
+                          src={item.src}
+                          alt={item.alt ?? item.title}
+                          title={item.title}
+                          compact
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center">
+                          <Play className="h-7 w-7 text-electric-blue" />
+                        </div>
+                      )}
+                      <div className="absolute left-2 top-2 rounded-full bg-black/65 p-1">
+                        {item.type === "video" ? (
+                          <Play className="h-3.5 w-3.5 text-electric-blue" />
+                        ) : (
+                          <ImageIcon className="h-3.5 w-3.5 text-white" />
+                        )}
+                      </div>
+                    </div>
+                    <div className="p-2">
+                      <p className="line-clamp-2 text-xs font-medium text-gray-200">{item.title}</p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -135,6 +270,35 @@ export default function ProjectDetail() {
     "This project showcases my expertise in Unity development and demonstrates my ability to create engaging, high-quality interactive experiences.",
     "The implementation involved careful attention to performance optimization, user experience design, and scalable technical architecture.",
   ];
+  const coverImage = project?.coverImage ?? project?.image ?? "";
+  const mediaItems: MediaItem[] = project
+    ? [
+        ...(project.links.video
+          ? [
+              {
+                type: "video" as const,
+                src: project.links.video,
+                title: `${project.title} Video`,
+                caption: "Playable project footage or demo video.",
+              },
+            ]
+          : []),
+        ...(project.showcaseImages?.map((image) => ({
+          type: "image" as const,
+          src: image.src,
+          title: image.title ?? project.title,
+          caption: image.caption,
+          alt: image.alt,
+        })) ?? []),
+        {
+          type: "image" as const,
+          src: coverImage,
+          title: `${project.title} Cover`,
+          caption: project.description,
+          alt: project.title,
+        },
+      ]
+    : [];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -180,7 +344,7 @@ export default function ProjectDetail() {
 
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
             <div>
-              <ProjectHeroImage src={project.image} title={project.title} />
+              <ProjectHeroImage src={coverImage} title={project.title} />
             </div>
             <div className="space-y-6">
               <div>
@@ -258,6 +422,8 @@ export default function ProjectDetail() {
             </div>
           </div>
 
+          <ProjectMediaShowcase media={mediaItems} />
+
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <Card className="glass-morphism rounded-2xl">
@@ -270,25 +436,6 @@ export default function ProjectDetail() {
                   </div>
                 </CardContent>
               </Card>
-
-              {project.showcaseImages?.length ? (
-                <Card className="glass-morphism rounded-2xl">
-                  <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold mb-6">Project Highlights</h2>
-                    <div className="space-y-6">
-                      {project.showcaseImages.map((image) => (
-                        <ShowcaseImage
-                          key={`${project.slug}-${image.src}`}
-                          src={image.src}
-                          alt={image.alt}
-                          title={image.title}
-                          caption={image.caption}
-                        />
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ) : null}
 
               <Card className="glass-morphism rounded-2xl">
                 <CardContent className="p-8">

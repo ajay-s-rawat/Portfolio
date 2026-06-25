@@ -4,6 +4,7 @@ export interface Project {
   title: string;
   description: string;
   image: string;
+  coverImage?: string;
   technologies: string[];
   categories: string[];
   year: string;
@@ -32,8 +33,9 @@ export const projects: Project[] = [
     slug: "fighter-pilot-heavyfire",
     title: "Fighter Pilot: HeavyFire",
     description:
-      "Led the development team and built the complete game meta architecture for this mobile combat flight experience released for app stores.",
+      "Led the development team and built the complete game meta architecture for this mobile combat flight experience, released on Google Play and the App Store.",
     image: "/projects/fighter-pilot-heavyfire/thumbnail.jpg",
+    coverImage: "/projects/fighter-pilot-heavyfire/HeavyFire_Cover.png",
     technologies: ["Unity 3D", "Android", "iOS"],
     categories: ["games"],
     year: "2023",
@@ -46,7 +48,7 @@ export const projects: Project[] = [
     ],
     showcaseImages: [
       {
-        src: "/projects/fighter-pilot-heavyfire/award-poster.jpg",
+        src: "/projects/fighter-pilot-heavyfire/igdc-studio-game-fighter-pilot-heavyfire.jpg",
         alt: "Award poster for Fighter Pilot HeavyFire",
         title: "Award Recognition",
         caption: "Studio Game of the Year runner-up poster featuring Fighter Pilot: HeavyFire."
@@ -77,37 +79,37 @@ export const projects: Project[] = [
     ],
     showcaseImages: [
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-01.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb.webp",
         alt: "Vegas VIP Slots reward wheel screen",
         title: "Reward Wheel",
         caption: "Reward and bonus loop presentation from the Vegas VIP Slots gameplay flow."
       },
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-02.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb%20(1).webp",
         alt: "Vegas VIP Slots gameplay screen with reels",
         title: "Spin and Win",
         caption: "Core reels interface with payout presentation and progression-driven slot feedback."
       },
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-03.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb%20(2).webp",
         alt: "Vegas VIP Slots large payout screen",
         title: "Huge Payouts",
         caption: "High-impact reward reveal screen built to keep the gameplay loop exciting and readable."
       },
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-04.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb%20(3).webp",
         alt: "Vegas VIP Slots jackpot screen",
         title: "Epic Jackpots",
         caption: "Jackpot event presentation designed for strong moment-to-moment payoff."
       },
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-05.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb%20(4).webp",
         alt: "Vegas VIP Slots rewards screen",
         title: "Progress Rewards",
         caption: "Retention-oriented rewards and milestone UI from the slot progression flow."
       },
       {
-        src: "/projects/vegas-vip-slots-casino-games/screen-06.jpg",
+        src: "/projects/vegas-vip-slots-casino-games/960x444bb%20(5).webp",
         alt: "Vegas VIP Slots free spins screen",
         title: "Free Spins",
         caption: "Bonus mode presentation showing free-spin states and animated slot feedback."
