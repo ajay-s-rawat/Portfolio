@@ -5,12 +5,14 @@ export interface Project {
   description: string;
   image: string;
   coverImage?: string;
+  tags?: string[];
   technologies: string[];
   categories: string[];
   year: string;
   role?: string;
   platforms?: string[];
   overview?: string[];
+  contributions?: string[];
   showcaseImages?: Array<{
     src: string;
     alt: string;
@@ -36,15 +38,21 @@ export const projects: Project[] = [
       "Led the development team and built the complete game meta architecture for this mobile combat flight experience, released on Google Play and the App Store.",
     image: "/projects/fighter-pilot-heavyfire/thumbnail.jpg",
     coverImage: "/projects/fighter-pilot-heavyfire/HeavyFire_Cover.png",
-    technologies: ["Unity 3D", "Android", "iOS"],
+    tags: ["Unity 3D", "Android", "iOS"],
+    technologies: ["Unity", "Playfab", "Playmaker", "C#", "Android studio", "XCode"],
     categories: ["games"],
-    year: "2023",
-    role: "Lead Developer",
+    year: "2020-2022",
+    role: "Lead Unity Developer",
     platforms: ["Android", "iOS"],
     overview: [
       "Fighter Pilot: HeavyFire is a combat flight game where I led the team and shaped the technical direction behind its core progression and gameplay systems.",
       "My work covered the broader game architecture, mission structure, upgrade loops, economy balancing, and the systems required to support long-term player engagement.",
       "The project focused on combining accessible aerial action with scalable mobile-friendly systems that could support continued content and store deployment."
+    ],
+    contributions: [
+      "Led the Unity development team across gameplay, meta systems, and mobile release work.",
+      "Designed mission, upgrade, economy, and progression systems for repeatable player engagement.",
+      "Coordinated Android and iOS deployment needs while keeping performance suitable for mobile devices."
     ],
     showcaseImages: [
       {
@@ -67,6 +75,7 @@ export const projects: Project[] = [
     description:
       "Implemented gameplay features and UI flows for this polished casino slot title with App Store deployment and reward-driven engagement systems.",
     image: "/projects/vegas-vip-slots-casino-games/thumbnail.webp",
+    tags: ["Unity", "iOS"],
     technologies: ["Unity", "C#", "Mobile UI"],
     categories: ["games"],
     year: "2019",
@@ -76,6 +85,11 @@ export const projects: Project[] = [
       "Vegas VIP Slots: Casino Games highlights my work on casino-style game presentation with a strong focus on polished flows, responsive interactions, and player retention loops.",
       "I contributed to gameplay features, screen implementation, and mobile-ready UI behavior that supported a premium-feeling slot experience.",
       "The project required balancing spectacle, clarity, and performance for a content-rich mobile casino title."
+    ],
+    contributions: [
+      "Implemented slot gameplay features, reward screens, and supporting UI flows in Unity.",
+      "Built responsive mobile interactions for bonus states, payouts, and progression moments.",
+      "Helped maintain a polished casino presentation while keeping screens readable and performant."
     ],
     showcaseImages: [
       {
@@ -125,16 +139,23 @@ export const projects: Project[] = [
     title: "Fighter Vs Bomber",
     description:
       "Built multiplayer combat architecture and gameplay behaviors for a mobile aerial dogfight experience focused on fast-paced encounters.",
-    image: "/projects/fighter-vs-bomber/thumbnail.jpg",
-    technologies: ["Unity3D", "C#"],
+    image: "/projects/fighter-vs-bomber/fighters-vs-bombers-square-thumbnail.png",
+    tags: ["Unity 3D", "Android", "iOS"],
+    technologies: ["Unity 3D", "C#"],
     categories: ["games"],
     year: "2022",
     role: "Unity Developer",
     platforms: ["Mobile"],
+    coverImage: "/projects/fighter-vs-bomber/fvb_cover.png",
     overview: [
       "Fighter Vs Bomber focused on real-time aerial combat with fast dogfight pacing and multiplayer behavior synchronization.",
       "I worked on gameplay architecture, combat systems integration, and the technical structure needed to support responsive mobile sessions.",
       "The result was a combat-focused experience designed around action readability and replay-friendly encounters."
+    ],
+    contributions: [
+      "Built gameplay systems for aerial combat, targeting, and moment-to-moment fighter behavior.",
+      "Worked on multiplayer-oriented architecture for responsive mobile combat sessions.",
+      "Integrated combat feedback and encounter pacing to support readable dogfight gameplay."
     ],
     links: {}
   },
@@ -145,6 +166,7 @@ export const projects: Project[] = [
     description:
       "Implemented the gameplay mechanics and monetization flows for a casual mobile game built around satisfying physics-based interactions.",
     image: "/projects/throw-a-ring/thumbnail.jpg",
+    tags: ["Unity 3D", "Android"],
     technologies: ["Unity 3D", "Android"],
     categories: ["games"],
     year: "2019",
@@ -155,6 +177,11 @@ export const projects: Project[] = [
       "My work focused on implementing core mechanics, integrating monetization flows, and helping shape a lightweight but replayable game loop.",
       "The project balanced simple controls with satisfying feel, responsiveness, and mobile-friendly progression."
     ],
+    contributions: [
+      "Implemented the core ring-throwing mechanics and physics-driven interaction feel.",
+      "Integrated monetization touchpoints into the casual game loop.",
+      "Tuned mobile responsiveness so the simple interaction stayed satisfying across sessions."
+    ],
     links: {}
   },
   {
@@ -164,6 +191,7 @@ export const projects: Project[] = [
     description:
       "Designed immersive XR training architecture and authoring workflows for defence simulation use cases across multiple headset ecosystems.",
     image: "/projects/indian-air-force-xr-training/thumbnail.jpg",
+    tags: ["Unity 3D", "AR", "VR"],
     technologies: ["Unity 3D", "AR", "VR"],
     categories: ["xr"],
     year: "2024",
@@ -173,6 +201,11 @@ export const projects: Project[] = [
       "This project focused on XR-based training delivery for the Indian Air Force, with an emphasis on realism, repeatability, and cross-device deployment.",
       "I helped design the architecture and tools that supported content authoring, simulation management, and scalable delivery across enterprise XR hardware.",
       "The work required balancing technical reliability, training fidelity, and usability for practical simulation workflows."
+    ],
+    contributions: [
+      "Designed XR architecture for training scenarios across VR and mixed-reality hardware.",
+      "Created authoring and simulation workflows for repeatable enterprise training delivery.",
+      "Balanced fidelity, usability, and hardware constraints across HTC Vive Pro, HoloLens 2, and HP Reverb G2."
     ],
     showcaseImages: [
       {
@@ -191,6 +224,7 @@ export const projects: Project[] = [
     description:
       "Built immersive medical XR interactions for Meta Quest 3, focusing on usability, training support, and believable simulation workflows.",
     image: "/projects/medical-xr/thumbnail.jpg",
+    tags: ["Unity 3D", "VR", "WebGL"],
     technologies: ["Unity 3D", "VR", "WebGL"],
     categories: ["xr"],
     year: "2024",
@@ -201,6 +235,11 @@ export const projects: Project[] = [
       "The experience focused on intuitive headset interactions, scene clarity, and simulation-friendly presentation for instructional use cases.",
       "I adapted the implementation for Meta Quest 3 with attention to performance, usability, and smooth headset-based interaction."
     ],
+    contributions: [
+      "Built immersive medical-training interactions for standalone VR use.",
+      "Optimized interaction flow and scene readability for Meta Quest 3.",
+      "Focused on performance and usability so instructional moments remained clear inside the headset."
+    ],
     links: {}
   },
   {
@@ -210,6 +249,7 @@ export const projects: Project[] = [
     description:
       "Created a WebGL and Meta Quest 3 city experience within a larger metaverse direction, balancing exploration, presence, and performance.",
     image: "/projects/eternity-city/thumbnail.png",
+    tags: ["Unity 3D", "VR", "WebGL"],
     technologies: ["Unity 3D", "VR", "WebGL"],
     categories: ["xr", "webgl"],
     year: "2024",
@@ -219,6 +259,11 @@ export const projects: Project[] = [
       "Eternity City is a real-time 3D urban exploration experience designed to work across browser and XR delivery targets.",
       "I focused on adapting the environment, interactions, and rendering strategy for both WebGL and Meta Quest 3 deployment contexts.",
       "The project emphasized scale, readability, and a cohesive metaverse-style city identity across platforms."
+    ],
+    contributions: [
+      "Adapted a city-scale Unity experience for both WebGL and Meta Quest 3.",
+      "Worked on exploration flow, interaction behavior, and platform-specific rendering constraints.",
+      "Maintained a cohesive city identity while balancing browser and headset performance needs."
     ],
     showcaseImages: [
       {
@@ -237,6 +282,7 @@ export const projects: Project[] = [
     description:
       "Built a cross-platform virtual retail experience for WebGL and Meta Quest 3 with a focus on interaction flow and spatial shopping concepts.",
     image: "/projects/vr-mall/thumbnail.png",
+    tags: ["Unity 3D", "VR", "WebGL"],
     technologies: ["Unity 3D", "VR", "WebGL"],
     categories: ["xr", "webgl"],
     year: "2024",
@@ -247,6 +293,11 @@ export const projects: Project[] = [
       "I worked on the platform adaptation and the experience layer needed to make virtual retail interactions feel clear and usable.",
       "The project fit within a broader metaverse-style initiative while still needing its own product identity and interaction logic."
     ],
+    contributions: [
+      "Built virtual retail interaction flows for WebGL and Meta Quest 3.",
+      "Adapted storefront exploration and navigation patterns for spatial use.",
+      "Kept the shopping experience clear while fitting it into a broader metaverse-style product direction."
+    ],
     links: {}
   },
   {
@@ -256,6 +307,7 @@ export const projects: Project[] = [
     description:
       "Developed an immersive banking-oriented XR experience for WebGL and Meta Quest 3 with a focus on clarity, trust, and guided interaction.",
     image: "/projects/vr-bank/thumbnail.jpg",
+    tags: ["Unity 3D", "VR", "WebGL"],
     technologies: ["Unity 3D", "VR", "WebGL"],
     categories: ["xr", "webgl"],
     year: "2024",
@@ -266,6 +318,11 @@ export const projects: Project[] = [
       "My work focused on delivering a stable, understandable user experience that could translate structured interactions into 3D space.",
       "The project balanced platform performance, interface clarity, and the product tone expected from a banking context."
     ],
+    contributions: [
+      "Developed immersive banking flows for browser and headset deployment.",
+      "Translated structured service interactions into clear 3D interface patterns.",
+      "Prioritized stability, readability, and a trustworthy product tone across platforms."
+    ],
     links: {}
   },
   {
@@ -275,6 +332,7 @@ export const projects: Project[] = [
     description:
       "Created a spiritual and exploratory XR environment for WebGL and Meta Quest 3, designed around atmosphere, navigation, and presence.",
     image: "/projects/vr-temple/thumbnail.jpg",
+    tags: ["Unity 3D", "VR", "WebGL"],
     technologies: ["Unity 3D", "VR", "WebGL"],
     categories: ["xr", "webgl"],
     year: "2024",
@@ -284,6 +342,11 @@ export const projects: Project[] = [
       "VR Temple focused on immersive atmosphere and environment-driven interaction inside a spiritual 3D experience.",
       "I helped shape a delivery approach that preserved visual mood while still staying practical for browser and standalone XR performance targets.",
       "The work emphasized spatial presence, environmental storytelling, and a calm, navigable experience flow."
+    ],
+    contributions: [
+      "Created immersive environment and navigation behavior for a spiritual XR setting.",
+      "Adapted the experience for WebGL and Meta Quest 3 delivery constraints.",
+      "Balanced atmosphere, visual mood, and smooth spatial movement for a calm user flow."
     ],
     links: {}
   }

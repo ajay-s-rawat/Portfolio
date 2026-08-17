@@ -141,7 +141,7 @@ export default function ProjectsSection() {
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xl font-bold">{project.title}</h3>
                   <div className="flex flex-wrap justify-end gap-2">
-                    {project.technologies.map((tech, index) => (
+                    {(project.tags ?? project.technologies).map((tech, index) => (
                       <Badge 
                         key={tech}
                         variant="secondary"
