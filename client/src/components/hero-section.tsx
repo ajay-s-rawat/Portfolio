@@ -46,7 +46,7 @@ export default function HeroSection() {
                 Game Developer | XR Developer
               </p>
               <p className="text-xl text-gray-300 max-w-lg">
-                7+ years building and architecting immersive solutions, including games, metaverse experiences, and XR applications across multiple platforms. Open to full-time, freelance, and consulting roles.
+                8+ years building and architecting immersive solutions, including games, metaverse experiences, and XR applications across multiple platforms. Open to full-time, freelance, and consulting roles.
               </p>
             </div>
 

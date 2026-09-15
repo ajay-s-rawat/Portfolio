@@ -33,7 +33,7 @@ export default function AboutSection() {
   ];
 
   const stats = [
-    { value: "6+", label: "Years Experience", color: "text-electric-blue" },
+    { value: "8+", label: "Years Experience", color: "text-electric-blue" },
     { value: "15+", label: "Games Shipped", color: "text-vibrant-purple" },
     { value: "500K+", label: "Downloads", color: "text-electric-blue" }
   ];
@@ -49,7 +49,7 @@ export default function AboutSection() {
               </h2>
               <div className="space-y-6 text-lg text-gray-300">
                 <p>
-                  I'm an experienced Unity Developer with 7+ years of expertise in designing and developing immersive gameplay experiences for mid-core games with over 1M+ downloads. My journey began with a Computer Science degree and evolved into leading development teams.
+                  I'm an experienced Unity Developer with 8+ years of expertise in designing and developing immersive gameplay experiences for mid-core games with over 1M+ downloads. My journey began with a Computer Science degree and evolved into leading development teams.
                 </p>
                 <p>
                   Proficient in Unity Game Engine and Mixed Reality, I've worked on various projects from WebGL applications for metaverse ecosystems to AR/VR content authoring tools. I'm passionate about pushing the boundaries of game design with innovative technical solutions.
@@ -71,13 +71,6 @@ export default function AboutSection() {
           </div>
           
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=800" 
-              alt="Professional portrait of game developer" 
-              className="rounded-2xl shadow-2xl" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 to-vibrant-purple/10 rounded-2xl" />
-            
             {/* Experience Timeline */}
             <div className="mt-8 space-y-6">
               {experiences.map((exp, index) => (
